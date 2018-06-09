@@ -5,5 +5,6 @@ Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant", type: "rsync", disabled: true
 
+  config.vm.provision "shell", path: "fix-dpkg.ubuntu.sh"
   config.vm.provision "shell", path: "bootstrap.sh"
 end
